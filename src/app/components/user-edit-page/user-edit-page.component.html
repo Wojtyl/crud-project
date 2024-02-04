@@ -1,0 +1,7 @@
+<section class="flex justify-center">
+  <h1 class="text-4xl font-bold mt-8">Edit user</h1>
+</section>
+<section class="flex flex-col justify-center items-center mx-auto bg-neutral-200 rounded-lg w-[15rem] md:w-[25rem] lg:w-[40rem] my-4 p-4">
+  <app-user-form *ngIf="user" [user]="user" (formData)="setFormData($event)"></app-user-form>
+  <button class="mt-8 bg-cyan-500 text-white py-2 hover:bg-cyan-600 w-[10rem] disabled:bg-blue-300" (click)="saveUser()" [disabled]="!userFormData">Edit user</button>
+</section>

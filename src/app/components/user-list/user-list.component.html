@@ -1,1 +1,57 @@
-<p>user-list works!</p>
+<div class="block w-full overflow-x-auto">
+  <table class="items-center bg-transparent w-full border-collapse ">
+    <thead>
+    <tr>
+      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+        Username
+      </th>
+      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+        Real name
+      </th>
+      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+        Surname
+      </th>
+      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+        Role
+      </th>
+      <th colspan="2" class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+        Actions
+      </th>
+      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let user of users">
+      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+        {{user.username}}
+      </th>
+      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+        {{user.realName}}
+      </td>
+      <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+        {{user.surname}}
+      </td>
+      <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+        {{user.role}}
+      </td>
+      <td colspan="2" class="flex gap-2 p-4 justify-center items-center">
+        <span [routerLink]="['edit', user.id]" class="text-sm bg-cyan-500 text-white px-2 py-1 rounded-sm cursor-pointer hover:bg-cyan-600">Edit</span>
+        <span (click)="deleteUser(user.id)" class="text-sm bg-red-500 text-white px-2 py-1 rounded-sm cursor-pointer hover:bg-red-600">Delete</span>
+
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr *ngIf="!users || users.length === 0">
+      <td colspan="7" class="border-t-0 px-6 align-center border-l-0 border-r-0 text-lg font-bold whitespace-nowrap p-4 text-center">
+        There are no users yet
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,7 @@
+.form-group {
+  @apply mt-2;
+  label {
+    @apply mb-2;
+  }
+  @apply flex flex-col;
+}
